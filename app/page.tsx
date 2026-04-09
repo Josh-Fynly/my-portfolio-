@@ -2,12 +2,6 @@
 
 import React, { useState } from 'react';
 
-// ==============================
-// 1. EASY PROJECT MANAGEMENT
-// Just add/edit objects here. No coding needed.
-// Format: title, problem, solution, tech[], live?, github
-// ==============================
-
 interface Project {
   title: string;
   problem: string;
@@ -45,14 +39,11 @@ const projects: Project[] = [
 
 const CONTACT_EMAIL = "joshfynly@gmail.com";
 
-// ==============================
-// 2. COMPONENT WITH WORKING CONTACT
-// ==============================
-
 export default function Portfolio() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -66,29 +57,44 @@ export default function Portfolio() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    setError('');
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setError('');
 
-    // Fallback to mailto if FormSubmit unavailable
-    const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Portfolio Inquiry from ${formData.name}`)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-    
-    window.location.href = mailtoLink;
-    
-    // Show success feedback
-    setTimeout(() => {
-      setSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
+    try {
+      // Use FormSubmit.co to send email
+      const formBody = new FormData();
+      formBody.append('name', formData.name);
+      formBody.append('email', formData.email);
+      formBody.append('message', formData.message);
+      formBody.append('_subject', `Portfolio Inquiry from ${formData.name}`);
+      formBody.append('_captcha', 'false');
+
+      const response = await fetch('https://formsubmit.co/' + CONTACT_EMAIL, {
+        method: 'POST',
+        body: formBody,
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        setError('Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      setError('Connection error. Please try again or email directly.');
+    } finally {
       setLoading(false);
-      setTimeout(() => setSubmitted(false), 5000);
-    }, 500);
+    }
   };
 
   return (
     <main style={styles.main}>
-      {/* HERO */}
       <section style={styles.hero}>
         <h1 style={styles.name}>Josh Fynly</h1>
         <p style={styles.tagline}>Backend Engineer | AI & Simulation Developer</p>
@@ -110,7 +116,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ABOUT */}
       <section style={styles.section}>
         <h2 style={styles.heading}>About</h2>
         <p style={styles.text}>
@@ -119,7 +124,6 @@ export default function Portfolio() {
         </p>
       </section>
 
-      {/* PROJECTS */}
       <section id="projects" style={styles.section}>
         <h2 style={styles.heading}>Projects</h2>
         <p style={{...styles.text, marginBottom: '30px'}}>
@@ -174,7 +178,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* SKILLS */}
       <section style={styles.section}>
         <h2 style={styles.heading}>Technical Expertise</h2>
         <div style={styles.skillGrid}>
@@ -197,7 +200,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* CONTACT */}
       <section id="contact" style={styles.section}>
         <h2 style={styles.heading}>Get In Touch</h2>
         <p style={styles.text}>
@@ -206,7 +208,13 @@ export default function Portfolio() {
 
         {submitted && (
           <div style={styles.successMessage}>
-            ✓ Message sent! I'll respond within 24 hours.
+            ✓ Message received! I'll respond within 24 hours.
+          </div>
+        )}
+
+        {error && (
+          <div style={styles.errorMessage}>
+            ✗ {error}
           </div>
         )}
 
@@ -260,7 +268,7 @@ export default function Portfolio() {
         </form>
 
         <p style={{...styles.textSmall, marginTop: '30px', textAlign: 'center', color: '#666'}}>
-          Email: <a href={`mailto:${CONTACT_EMAIL}`} style={{color: '#3b82f6', textDecoration: 'none'}}>{CONTACT_EMAIL}</a>
+          Or email directly: <a href={`mailto:${CONTACT_EMAIL}`} style={{color: '#3b82f6', textDecoration: 'none'}}>{CONTACT_EMAIL}</a>
         </p>
       </section>
       
@@ -270,10 +278,6 @@ export default function Portfolio() {
     </main>
   );
 }
-
-// ==============================
-// 3. RESPONSIVE STYLES
-// ==============================
 
 const styles: Record<string, React.CSSProperties> = {
   main: {
@@ -514,6 +518,17 @@ const styles: Record<string, React.CSSProperties> = {
     textAlign: "center",
     fontWeight: "500",
   },
+  errorMessage: {
+    padding: "clamp(12px, 2vw, 16px)",
+    borderRadius: "8px",
+    background: "rgba(239, 68, 68, 0.1)",
+    border: "1px solid rgba(239, 68, 68, 0.3)",
+    color: "#fca5a5",
+    fontSize: "clamp(13px, 3vw, 16px)",
+    marginBottom: "clamp(20px, 3vw, 30px)",
+    textAlign: "center",
+    fontWeight: "500",
+  },
   footer: {
     marginTop: "clamp(80px, 10vw, 140px)",
     paddingTop: "clamp(20px, 3vw, 30px)",
@@ -523,4 +538,3 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: "clamp(11px, 2vw, 13px)",
   },
 };
-      
