@@ -66,7 +66,6 @@ export default function Portfolio() {
     setError('');
 
     try {
-      // Use FormSubmit.co to send email
       const formBody = new FormData();
       formBody.append('name', formData.name);
       formBody.append('email', formData.email);
@@ -273,7 +272,7 @@ export default function Portfolio() {
       </section>
       
       <footer style={styles.footer}>
-        <p style={styles.textSmall}>© 2026 Josh Fynly. All rights reserved.</p>
+        <p style={styles.textSmall}>© {new Date().getFullYear()} Josh Fynly. All rights reserved.</p>
       </footer>
     </main>
   );
