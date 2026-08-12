@@ -35,6 +35,13 @@ const projects: Project[] = [
     tech: ["Physics Modeling", "Multi-Agent Systems", "Python", "Simulation Engineering"],
     github: "https://github.com/Josh-Fynly/-autonomous-lunar-construction-simulator",
   },
+  {
+    title: "Cloud Data Pipeline",
+    problem: "Backend systems require automated data processing, analytics generation, and reproducible cloud execution without manual intervention or infrastructure overhead.",
+    solution: "Modular backend automation pipeline that processes structured data through Python with Pandas/NumPy, generates analytics reports, and automates execution using GitHub Actions CI/CD with secure credential management and cloud-based execution.",
+    tech: ["Python", "Pandas", "NumPy", "GitHub Actions", "SMTP"],
+    github: "https://github.com/Josh-Fynly/cloud-data-pipeline",
+  },
 ];
 
 const CONTACT_EMAIL = "joshfynly@gmail.com";
@@ -537,3 +544,4 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: "clamp(11px, 2vw, 13px)",
   },
 };
+    
