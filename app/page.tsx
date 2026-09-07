@@ -44,6 +44,15 @@ const projects: Project[] = [
   },
 ];
 
+{
+  title: "Banner Of Excellence Schools Website",
+  problem: "School lacked professional online presence to communicate with parents and showcase educational programs (crèche, nursery, primary). Needed credible digital platform for inquiries and enrollment.",
+  solution: "Built responsive, production-ready website with clean navigation, program showcases, gallery, and contact forms. Implemented Apple-inspired minimalist design using school brand colors, deployed on Vercel for automatic updates.",
+  tech: ["Next.js 14", "TypeScript", "React 18", "Tailwind CSS", "Vercel"],
+  github: "https://github.com/Josh-Fynly/school-website",
+  live: "https://school-website-sandy-xi.vercel.app",
+},
+
 const CONTACT_EMAIL = "joshfynly@gmail.com";
 
 export default function Portfolio() {
