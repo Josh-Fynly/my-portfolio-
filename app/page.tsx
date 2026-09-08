@@ -781,4 +781,4 @@ const styles: Record<string, React.CSSProperties> = {
       "rgba(34, 197, 94, 0.1)",
     border:
       "1px solid rgba(34, 197, 94, 0.3)",
-    color: "#86ef
+    color: "#86efac",
