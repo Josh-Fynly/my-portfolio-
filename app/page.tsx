@@ -50,7 +50,17 @@ const projects: Project[] = [
     github: "https://github.com/Josh-Fynly/school-website",
     live: "https://school-website-sandy-xi.vercel.app",
   },
+
 ];
+
+{
+  title: "Zwey — Artist Discovery & Collaboration Platform",
+  problem: "Emerging artists lack a centralized platform to build public presence, discover collaborators, connect their music platforms, and access distribution resources. Artist discovery and networking are fragmented across multiple tools.",
+  solution: "Built a full-stack social discovery platform for musicians featuring authentication, artist profiles with music platform integration, responsive mobile-first UI, and production-ready Firebase backend with security rules. Beta deployment with active users; roadmap includes social feed, collaboration discovery, and distribution partnerships.",
+  tech: ["Next.js 14", "React 18", "JavaScript", "Tailwind CSS", "Firebase Auth", "Cloud Firestore", "Firebase Storage", "Vercel"],
+  github: "https://github.com/Josh-Fynly/zwey",
+  live: "https://zwey-app.vercel.app",
+},
 
 const CONTACT_EMAIL = "joshfynly@gmail.com";
 
