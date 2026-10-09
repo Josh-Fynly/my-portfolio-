@@ -50,15 +50,15 @@ const projects: Project[] = [
     github: "https://github.com/Josh-Fynly/school-website",
     live: "https://school-website-sandy-xi.vercel.app",
   },
+  {
+    title: "Zwey — Artist Discovery & Collaboration Platform",
+    problem: "Emerging artists lack a centralized platform to build public presence, discover collaborators, connect their music platforms, and access distribution resources. Artist discovery and networking are fragmented across multiple tools.",
+    solution: "Built a full-stack social discovery platform for musicians featuring authentication, artist profiles with music platform integration, responsive mobile-first UI, and production-ready Firebase backend with security rules. Beta deployment with active users; roadmap includes social feed, collaboration discovery, and distribution partnerships.",
+    tech: ["Next.js 14", "React 18", "JavaScript", "Tailwind CSS", "Firebase Auth", "Cloud Firestore", "Firebase Storage", "Vercel"],
+    github: "https://github.com/Josh-Fynly/zwey",
+    live: "https://zwey-app.vercel.app",
+  }
 ];
-{
-  title: "Zwey — Artist Discovery & Collaboration Platform",
-  problem: "Emerging artists lack a centralized platform to build public presence, discover collaborators, connect their music platforms, and access distribution resources. Artist discovery and networking are fragmented across multiple tools.",
-  solution: "Built a full-stack social discovery platform for musicians featuring authentication, artist profiles with music platform integration, responsive mobile-first UI, and production-ready Firebase backend with security rules. Beta deployment with active users; roadmap includes social feed, collaboration discovery, and distribution partnerships.",
-  tech: ["Next.js 14", "React 18", "JavaScript", "Tailwind CSS", "Firebase Auth", "Cloud Firestore", "Firebase Storage", "Vercel"],
-  github: "https://github.com/Josh-Fynly/zwey",
-  live: "https://zwey-app.vercel.app",
-},
 
 const CONTACT_EMAIL = "joshfynly@gmail.com";
 
@@ -225,12 +225,12 @@ export default function Portfolio() {
       <section id="contact" style={styles.section}>
         <h2 style={styles.heading}>Get In Touch</h2>
         <p style={styles.text}>
-          Let's discuss your project, collaboration, or opportunity.
+          Let&apos;s discuss your project, collaboration, or opportunity.
         </p>
 
         {submitted && (
           <div style={styles.successMessage}>
-            ✓ Message received! I'll respond within 24 hours.
+            ✓ Message received! I&apos;ll respond within 24 hours.
           </div>
         )}
 
@@ -349,7 +349,7 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: "center",
   },
   primaryBtn: {
-    padding: "clamp(11px 20px, 2.5vw 5vw, 14px 32px)",
+    padding: "clamp(11px, 2.5vw, 14px) clamp(20px, 5vw, 32px)",
     borderRadius: "8px",
     background: "linear-gradient(90deg, #3b82f6, #a855f7)",
     border: "none",
@@ -361,7 +361,7 @@ const styles: Record<string, React.CSSProperties> = {
     transition: "all 0.3s ease",
   },
   secondaryBtn: {
-    padding: "clamp(11px 20px, 2.5vw 5vw, 14px 32px)",
+    padding: "clamp(11px, 2.5vw, 14px) clamp(20px, 5vw, 32px)",
     borderRadius: "8px",
     border: "1px solid #444",
     background: "transparent",
@@ -447,7 +447,7 @@ const styles: Record<string, React.CSSProperties> = {
   tag: {
     background: "rgba(59, 130, 246, 0.08)",
     color: "#60a5fa",
-    padding: "clamp(5px 10px, 1vw 2vw, 7px 14px)",
+    padding: "clamp(5px, 1vw, 7px) clamp(10px, 2vw, 14px)",
     borderRadius: "6px",
     fontSize: "clamp(12px, 2.5vw, 14px)",
     border: "1px solid rgba(59, 130, 246, 0.15)",
@@ -528,7 +528,7 @@ const styles: Record<string, React.CSSProperties> = {
     color: "#fff",
     fontSize: "clamp(14px, 3vw, 16px)",
     transition: "all 0.3s ease",
-  } as React.CSSProperties,
+  },
   successMessage: {
     padding: "clamp(12px, 2vw, 16px)",
     borderRadius: "8px",
