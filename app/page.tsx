@@ -50,9 +50,7 @@ const projects: Project[] = [
     github: "https://github.com/Josh-Fynly/school-website",
     live: "https://school-website-sandy-xi.vercel.app",
   },
-
 ];
-
 {
   title: "Zwey — Artist Discovery & Collaboration Platform",
   problem: "Emerging artists lack a centralized platform to build public presence, discover collaborators, connect their music platforms, and access distribution resources. Artist discovery and networking are fragmented across multiple tools.",
