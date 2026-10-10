@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Josh Fynly | Backend Engineer & AI Developer",
+  title: "Josh Fynly | Backend & Systems Engineer",
   description: "Professional portfolio showcasing backend engineering, AI tools, and simulation projects.",
   keywords: ["Backend Engineer", "AI Developer", "Python", "Full Stack"],
   authors: [{ name: "Josh Fynly", url: "https://github.com/Josh-Fynly" }],
@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://my-portfolio.vercel.app",
-    title: "Josh Fynly | Backend Engineer & AI Developer",
+    title: "Josh Fynly | Backend & Systems Engineer",
     description: "Professional portfolio showcasing backend engineering, AI tools, and simulation projects.",
     siteName: "Josh Fynly Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Josh Fynly | Backend Engineer & AI Developer",
+    title: "Josh Fynly | Backend & Systems Engineer",
     description: "Professional portfolio showcasing backend engineering, AI tools, and simulation projects.",
   },
 };
