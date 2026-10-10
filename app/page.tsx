@@ -119,18 +119,18 @@ export default function Portfolio() {
     <main style={styles.main}>
       <section style={styles.hero}>
         <h1 style={styles.name}>Josh Fynly</h1>
-        <p style={styles.tagline}>Backend Engineer | AI & Simulation Developer</p>
+        <p style={styles.tagline}>Backend & Systems Engineer</p>
         <p style={styles.subTagline}>Building intelligent systems that scale beyond today.</p>
 
         <div style={styles.buttons}>
-          <button 
-            style={styles.primaryBtn} 
+          <button
+            style={styles.primaryBtn}
             onClick={() => scrollToSection("projects")}
           >
             View Projects
           </button>
-          <button 
-            style={styles.secondaryBtn} 
+          <button
+            style={styles.secondaryBtn}
             onClick={() => scrollToSection("contact")}
           >
             Get In Touch
@@ -141,26 +141,26 @@ export default function Portfolio() {
       <section style={styles.section}>
         <h2 style={styles.heading}>About</h2>
         <p style={styles.text}>
-          I build backend systems, AI tools, and engineering simulators. Specializing in privacy-first architecture, 
+          I build backend systems, AI tools, and engineering simulators. Specializing in privacy-first architecture,
           robust APIs, and complex problem-solving. Available for full-time roles, contract work, and technical consultation.
         </p>
       </section>
 
       <section id="projects" style={styles.section}>
         <h2 style={styles.heading}>Projects</h2>
-        <p style={{...styles.text, marginBottom: '30px'}}>
+        <p style={{ ...styles.text, marginBottom: '30px' }}>
           Each project represents a real engineering problem and a production-ready solution.
         </p>
         <div style={styles.grid}>
           {projects.map((proj, index) => (
             <div key={index} style={styles.card}>
               <h3 style={styles.cardTitle}>{proj.title}</h3>
-              
+
               <div style={styles.metaGroup}>
                 <span style={styles.label}>The Problem</span>
                 <p style={styles.textSmall}>{proj.problem}</p>
               </div>
-              
+
               <div style={styles.metaGroup}>
                 <span style={styles.label}>The Solution</span>
                 <p style={styles.textSmall}>{proj.solution}</p>
@@ -177,19 +177,19 @@ export default function Portfolio() {
 
               <div style={styles.linkRow}>
                 {proj.live && (
-                  <a 
-                    href={proj.live} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href={proj.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={styles.linkBtn}
                   >
                     Live Demo
                   </a>
                 )}
-                <a 
-                  href={proj.github} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={proj.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={styles.linkBtnOutline}
                 >
                   GitHub
@@ -276,24 +276,28 @@ export default function Portfolio() {
               placeholder="Tell me about your project or opportunity..."
               rows={5}
               required
-              style={{...styles.formInput, fontFamily: 'inherit'}}
+              style={{ ...styles.formInput, fontFamily: 'inherit' }}
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            style={{...styles.primaryBtn, opacity: loading ? 0.7 : 1, cursor: loading ? 'wait' : 'pointer'}}
+            style={{
+              ...styles.primaryBtn,
+              opacity: loading ? 0.7 : 1,
+              cursor: loading ? 'wait' : 'pointer'
+            }}
           >
             {loading ? 'Sending...' : 'Send Message'}
           </button>
         </form>
 
-        <p style={{...styles.textSmall, marginTop: '30px', textAlign: 'center', color: '#666'}}>
-          Or email directly: <a href={`mailto:${CONTACT_EMAIL}`} style={{color: '#3b82f6', textDecoration: 'none'}}>{CONTACT_EMAIL}</a>
+        <p style={{ ...styles.textSmall, marginTop: '30px', textAlign: 'center', color: '#666' }}>
+          Or email directly: <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#3b82f6', textDecoration: 'none' }}>{CONTACT_EMAIL}</a>
         </p>
       </section>
-      
+
       <footer style={styles.footer}>
         <p style={styles.textSmall}>© {new Date().getFullYear()} Josh Fynly. All rights reserved.</p>
       </footer>
